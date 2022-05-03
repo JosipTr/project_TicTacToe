@@ -42,12 +42,14 @@ ul {
 
 .top, .center, .bottom {
     display: flex;
+
 }
 
 .box-top, .box-center, .box-bottom{
     width: 200px;
     height: 200px;
     border: 1px solid red;
+    font-size: 150px;
 }
 
 
