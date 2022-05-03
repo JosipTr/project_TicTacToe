@@ -23,9 +23,40 @@ ul {
     margin-right: 35px;
 }
 
+/* Content */
+
 .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-grow: 1;
 }
+
+.box {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 600px;
+    border: 1px solid red;
+}
+
+.top, .center, .bottom {
+    display: flex;
+}
+
+.box-top, .box-center, .box-bottom{
+    width: 200px;
+    height: 200px;
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+}
+
+
+
+
+
+
+/*-------------*/
 
 footer {
     display: flex;
