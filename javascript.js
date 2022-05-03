@@ -6,6 +6,8 @@ const btnBottom = document.querySelectorAll(".box-bottom");
 const btnLeft = document.querySelectorAll(".left");
 const btnMiddle = document.querySelectorAll(".middle");
 const btnRight = document.querySelectorAll(".right");
+const btnMainDiagonal = document.querySelectorAll(".maindiagonal");
+const btnSecondDiagonal = document.querySelectorAll(".secondDiagonal");
 
 const content = document.querySelector(".content");
 
@@ -52,6 +54,8 @@ function check() {
     let flagLeft = 0;
     let flagMiddle = 0;
     let flagRight = 0;
+    let flagMainDiagonal = 0;
+    let flagSecondDiagonal = 0;
     btnTop.forEach((button) => {
         if (button.textContent === "X") flagTop++;
         else if (button.textContent === "O") flagTop--;
@@ -76,7 +80,15 @@ function check() {
         if (button.textContent === "X") flagRight++;
         else if (button.textContent === "O") flagRight--;
     })
-    if (flagTop === 3 || flagCenter === 3 || flagBottom === 3 || flagTop === -3 || flagCenter === -3 || flagBottom === -3 || flagLeft === 3 || flagLeft === -3 || flagMiddle === 3 || flagMiddle === -3 || flagRight === 3 || flagRight === -3) return true;
+    btnMainDiagonal.forEach((button) => {
+        if (button.textContent === "X") flagMainDiagonal++;
+        else if (button.textContent === "O") flagMainDiagonal--;
+    })
+    btnSecondDiagonal.forEach((button) => {
+        if (button.textContent === "X") flagSecondDiagonal++;
+        else if (button.textContent === "O") flagSecondDiagonal--;
+    })
+    if (flagSecondDiagonal === 3 || flagSecondDiagonal === -3 || flagMainDiagonal === 3 || flagMainDiagonal === -3 || flagTop === 3 || flagCenter === 3 || flagBottom === 3 || flagTop === -3 || flagCenter === -3 || flagBottom === -3 || flagLeft === 3 || flagLeft === -3 || flagMiddle === 3 || flagMiddle === -3 || flagRight === 3 || flagRight === -3) return true;
     else return false;
 }
 
