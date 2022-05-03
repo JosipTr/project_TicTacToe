@@ -7,6 +7,11 @@ const btnLeft = document.querySelectorAll(".left");
 const btnMiddle = document.querySelectorAll(".middle");
 const btnRight = document.querySelectorAll(".right");
 
+const content = document.querySelector(".content");
+
+const resultText = document.createElement("h1");
+resultText.style.color = "red";
+
 
 function takeResult(flag) {
     if (flag % 2 != 0) {
@@ -32,7 +37,11 @@ buttons.forEach((button) => {
         let flag = changeTurn();
         button.textContent = takeResult(flag);
         button.disabled = true;
-        if (check()) btnDisable(buttons);
+        if (check()) {
+            btnDisable(buttons);
+            if (flag % 2 != 0) resultText.textContent = "Winner: X"
+            else resultText.textContent = "Winner: O";
+        }
     });
 });
 
@@ -78,3 +87,4 @@ function btnDisable(buttons) {
 }
 
 
+content.appendChild(resultText);
