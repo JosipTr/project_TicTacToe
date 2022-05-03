@@ -1,5 +1,9 @@
 const buttons = document.querySelectorAll("button");
 
+const btnTop = document.querySelectorAll(".box-top");
+const btnCenter = document.querySelectorAll(".box-center");
+const btnBottom = document.querySelectorAll(".box-bottom");
+
 function takeResult(flag) {
     if (flag % 2 != 0) {
         return "X";
@@ -9,7 +13,7 @@ function takeResult(flag) {
     }
 }
 
-function check() {
+function changeTurn() {
     let flag = 1;
     buttons.forEach((button) => {
         if (button.textContent === "X") flag++;
@@ -21,10 +25,34 @@ function check() {
 buttons.forEach((button) => {
 
     button.addEventListener('click', () => {
-        let flag = check();
+        let flag = changeTurn();
         button.textContent = takeResult(flag);
         button.disabled = true;
+        if (check()) btnDisable(buttons);
     });
 });
+
+function check() {
+    let flagTop = 0;
+    let flagCenter = 0;
+    let flagBottom = 0;
+    btnTop.forEach((button) => {
+        if (button.textContent === "X") flagTop++;
+    })
+    btnCenter.forEach((button) => {
+        if (button.textContent === "X") flagCenter++;
+    })
+    btnBottom.forEach((button) => {
+        if (button.textContent === "X") flagBottom++;
+    })
+    if (flagTop === 3 || flagCenter === 3 || flagBottom === 3) return true;
+    else return false;
+}
+
+function btnDisable(buttons) {
+    buttons.forEach((button) => {
+        button.disabled = true;
+    })
+}
 
 
