@@ -1,8 +1,8 @@
-body {
+html, body {
     display: flex;
     flex-direction: column;
     width: auto;
-    height: auto;
+    height: 100%;
 }
 
 header {
@@ -23,3 +23,13 @@ ul {
     margin-right: 35px;
 }
 
+.content {
+    flex-grow: 1;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: brown;
+}
