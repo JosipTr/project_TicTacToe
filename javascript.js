@@ -38,14 +38,17 @@ function check() {
     let flagBottom = 0;
     btnTop.forEach((button) => {
         if (button.textContent === "X") flagTop++;
+        else if (button.textContent === "O") flagTop++;
     })
     btnCenter.forEach((button) => {
         if (button.textContent === "X") flagCenter++;
+        else if (button.textContent === "O") flagTop++;
     })
     btnBottom.forEach((button) => {
         if (button.textContent === "X") flagBottom++;
+        else if (button.textContent === "O") flagTop++;
     })
-    if (flagTop === 3 || flagCenter === 3 || flagBottom === 3) return true;
+    if (flagTop === 3 || flagCenter === 3 || flagBottom === 3 || flagTop === -3 || flagCenter === -3 || flagBottom === -3) return true;
     else return false;
 }
 
