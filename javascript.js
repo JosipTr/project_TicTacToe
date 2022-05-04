@@ -12,7 +12,11 @@ const btnSecondDiagonal = document.querySelectorAll(".secondDiagonal");
 const content = document.querySelector(".content");
 
 const resultText = document.createElement("h1");
+const btnRepeat = document.createElement("button");
+
+btnRepeat.textContent = "Play Again!";
 resultText.style.color = "red";
+btnRepeat.style.fontSize = "25px";
 
 
 function takeResult(flag) {
@@ -41,8 +45,15 @@ buttons.forEach((button) => {
         button.disabled = true;
         if (check()) {
             btnDisable(buttons);
-            if (flag % 2 != 0) resultText.textContent = "Winner: X"
-            else resultText.textContent = "Winner: O";
+            if (flag % 2 != 0) {
+                resultText.textContent = "Winner: X"
+                content.appendChild(btnRepeat);
+            }
+            else {
+                resultText.textContent = "Winner: O";
+                content.appendChild(btnRepeat);
+            }
+            
         }
     });
 });
@@ -98,5 +109,8 @@ function btnDisable(buttons) {
     })
 }
 
+btnRepeat.addEventListener('click', () => {
+    location.reload();
+})
 
 content.appendChild(resultText);
